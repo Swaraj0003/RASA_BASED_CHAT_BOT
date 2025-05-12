@@ -1,0 +1,52 @@
+version: "3.1"
+
+stories:
+
+- story: Greet and ask for services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_services
+  - action: utter_ask_enquiry
+
+- story: Submit enquiry form
+  steps:
+  - intent: submit_enquiry
+  - action: enquiry_form
+  - active_loop: enquiry_form
+  - slot_was_set:
+      - name: "John Doe"
+  - slot_was_set:
+      - email: "john@example.com"
+  - slot_was_set:
+      - enquiry: "I want to know more about your web development services."
+  - active_loop: null
+  - action: utter_submit
+  - action: action_save_enquiry
+
+- story: Complete enquiry with different user
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: submit_enquiry
+  - action: enquiry_form
+  - active_loop: enquiry_form
+  - slot_was_set:
+      - name: "Aisha Khan"
+  - slot_was_set:
+      - email: "aisha.khan@company.com"
+  - slot_was_set:
+      - enquiry: "Do you offer cloud infrastructure services?"
+  - active_loop: null
+  - action: utter_submit
+  - action: action_save_enquiry
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Greet and say goodbye without enquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+

@@ -1,0 +1,24 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+
+- intent: ask_services
+  examples: |
+    - What services do you offer?
+    - Tell me about your software solutions.
+
+- intent: submit_enquiry
+  examples: |
+    - I want to ask something
+    - I have an enquiry
+

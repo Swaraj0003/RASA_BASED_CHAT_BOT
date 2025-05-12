@@ -1,0 +1,49 @@
+intents:
+  - greet
+  - goodbye
+  - ask_services
+  - submit_enquiry
+
+entities:
+  - name
+  - email
+  - enquiry
+
+slots:
+  name:
+    type: text
+  email:
+    type: text
+  enquiry:
+    type: text
+
+responses:
+  utter_greet:
+    - text: "Hi! I'm Etqan Bot. How can I help you today?"
+  utter_goodbye:
+    - text: "Thanks for reaching out. Have a nice day!"
+  utter_ask_name:
+    - text: "May I have your name?"
+  utter_ask_email:
+    - text: "Please provide your email."
+  utter_ask_enquiry:
+    - text: "What would you like to know about Etqan Technologies?"
+  utter_submit:
+    - text: "Thank you {name}! We’ve received your enquiry."
+
+forms:
+  enquiry_form:
+    required_slots:
+      - name
+      - email
+      - enquiry
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_ask_name
+  - utter_ask_email
+  - utter_ask_enquiry
+  - utter_submit
+  - action_save_enquiry
+
